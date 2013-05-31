@@ -21,6 +21,9 @@ import grp
 import re
 
 def conf(o, b):
+    add = ''
+    if os.uname()[0] == 'Darwin':
+        add = '--disable-pcreposix'
     user=getpass.getuser()
     gid = pwd.getpwnam(user)[3]
     group = grp.getgrgid(gid)[0]
@@ -28,11 +31,12 @@ def conf(o, b):
     os.system(
         'export ac_cv_func_malloc_0_nonnull=yes && '
         './configure --prefix=%s --with-ssl=%s --with-owner=%s '
-        '--with-group=%s' % (
+        '--with-group=%s %s' % (
             o['location'],
             o['ssl'],
             o.get('user', user),
-            o.get('group', group)
+            o.get('group', group),
+            add
         )
     )
     os.environ['LD_RUN_PATH'] = o['ssl'] + '/parts/part/lib'
