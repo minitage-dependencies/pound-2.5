@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Copyright (C) 2008, Mathieu PASQUET <Mathieu PASQUET mpa@makina-corpus.com>
+# Copyright (C) 2008, Makina Corpus <Makina Corpus freesoftware@makina-corpus.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
